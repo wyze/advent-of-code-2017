@@ -1,0 +1,19 @@
+{
+  "name": "advent-of-code-2017",
+  "private": true,
+  "version": "0.0.0",
+  "repository": "wyze/advent-of-code-2017",
+  "author": {
+    "name": "Neil Kistner",
+    "email": "neil.kistner@gmail.com",
+    "url": "neilkistner.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "all": "run-s day*",
+    "all:test": "run-s day*:test"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.2"
+  }
+}

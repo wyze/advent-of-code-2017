@@ -1,0 +1,7 @@
+# Directories
+lib/
+node_modules/
+
+# Files
+.merlin
+day*/**/*.js
