@@ -11,8 +11,13 @@
   "license": "MIT",
   "scripts": {
     "all": "run-s day*",
-    "all:test": "run-s day*:test"
+    "all:test": "run-s day*:test",
+    "day01": "cd day01 && yarn start",
+    "day01:test": "cd day01 && yarn test"
   },
+  "workspaces": [
+    "day01"
+  ],
   "devDependencies": {
     "npm-run-all": "^4.1.2"
   }
