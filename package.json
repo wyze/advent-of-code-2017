@@ -13,10 +13,13 @@
     "all": "run-s day*",
     "all:test": "run-s day*:test",
     "day01": "cd day01 && yarn start",
-    "day01:test": "cd day01 && yarn test"
+    "day01:test": "cd day01 && yarn test",
+    "day02": "cd day02 && yarn start",
+    "day02:test": "cd day02 && yarn test"
   },
   "workspaces": [
-    "day01"
+    "day01",
+    "day02"
   ],
   "devDependencies": {
     "npm-run-all": "^4.1.2"
