@@ -1,25 +1,17 @@
-let createGetChar = ( input, modifier ) => index =>
-  Js.String.(get(input, (index + modifier) mod length(input)));
+let alwaysOne = (_) => 1;
 
-let createMatcher = getChar => ( a, ( i, v ) ) =>
-  switch (getChar(i) == v) {
-    | true => a + int_of_string(v)
-    | false => a
-  };
+let halfOfString = s => String.length(s) / 2;
 
-let getOutput = (~input = Input.input, getModifier) => {
-  let modifier = getModifier(input);
-
+let solve = ( ~input = Input.input, ~getInputModifier = alwaysOne, () ) =>
   input
     |> Js.String.split("")
-    |> Array.to_list
-    |> List.mapi(( i, s ) => (i, s))
-    |> List.fold_left(createMatcher(createGetChar(input, modifier)), 0);
-};
+    |> Array.mapi(( index, str ) =>
+        ( ( index + getInputModifier(input) ) mod String.length(input), str )
+      )
+    |> Array.map((( index, str )) =>
+        Js.String.get(input, index) === str ? int_of_string(str) : 0
+      )
+    |> Array.fold_left((+), 0);
 
-let part1 = getOutput((_) => 1);
-
-let part2 = getOutput(s => String.length(s) / 2);
-
-Js.log("Day 01, Part 1: " ++ string_of_int(part1));
-Js.log("Day 01, Part 2: " ++ string_of_int(part2));
+Js.log2("Day 01, Part 1: ", solve());
+Js.log2("Day 01, Part 2: ", solve(~getInputModifier = halfOfString, ()));
