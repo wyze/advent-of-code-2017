@@ -82,8 +82,8 @@ let nextLargerValue = input => {
   calculate(( half, half ), ( 1, 0 ), 1, variables);
 };
 
-let getOutput = ( ~input: int = Input.input, process ) =>
+let solve = ( ~input: int = Input.input, process ) =>
   process(input);
 
-Js.log2("Day 03, Part 1:", getOutput(numberOfSteps));
-Js.log2("Day 03, Part 2:", getOutput(nextLargerValue));
+Js.log2("Day 03, Part 1:", solve(numberOfSteps));
+Js.log2("Day 03, Part 2:", solve(nextLargerValue));
