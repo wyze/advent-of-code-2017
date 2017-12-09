@@ -3,5 +3,6 @@ lib/
 node_modules/
 
 # Files
+.bsb.lock
 .merlin
 day*/**/*.js
