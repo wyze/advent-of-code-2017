@@ -9,28 +9,28 @@ let range = Array.init(256, x => x);
 let rec process = ( skip, position, numbers, lengths ) =>
   switch lengths {
     | [ len, ...rest ] => {
-      let w = Js.Math.max_int(position + len - Array.length(numbers), 0);
+      let amount = Js.Math.max_int(position + len - Array.length(numbers), 0);
       let reversed = Js.Array.(
         concat(
-          slice(~start=0, ~end_=w, numbers),
+          slice(~start=0, ~end_=amount, numbers),
           slice(~start=position, ~end_=(position + len), numbers)
         )
         |> reverseInPlace
       );
-      let abc = Js.Array.(
+      let final = Js.Array.(
         concat(
           concat(
             sliceFrom(position + len, numbers),
-            slice(~start=0, ~end_=(length(reversed) - w), reversed)
+            slice(~start=0, ~end_=(length(reversed) - amount), reversed)
           ),
           concat(
-            slice(~start=w, ~end_=position, numbers),
-            sliceFrom(length(reversed) - w, reversed)
+            slice(~start=amount, ~end_=position, numbers),
+            sliceFrom(length(reversed) - amount, reversed)
           )
         )
       );
 
-      process(skip + 1, (position + len + skip) mod Array.length(abc), abc, rest);
+      process(skip + 1, (position + len + skip) mod Array.length(final), final, rest);
     }
     | [] => { numbers, position, skip }
   };
