@@ -2,7 +2,11 @@ module IntSet =
   Set.Make({
     type t = int;
 
-    let compare = Pervasives.compare;
+    let compare = ( x, y ) =>
+      switch ( x === y ) {
+        | true => 0
+        | false => x - y
+      };
   });
 
 let walkGraph = ( start, graph ) => {
@@ -47,7 +51,10 @@ let part2 = programs => {
 };
 
 let parse = input => {
-  let [| program, connections |] = Js.String.split(" <-> ", input);
+  let ( program, connections ) = switch ( Js.String.split(" <-> ", input) ) {
+    | [| program, connections |] => ( program, connections )
+    | _ => ( "", "" )
+  };
 
   (
     int_of_string(program),
@@ -65,5 +72,5 @@ let solve = ( ~input = Input.input, solver ) =>
     |> Array.to_list
     |> solver;
 
-Js.log2("Day 10, Part 1:", solve(part1));
-Js.log2("Day 10, Part 2:", solve(part2));
+Js.log2("Day 12, Part 1:", solve(part1));
+Js.log2("Day 12, Part 2:", solve(part2));
