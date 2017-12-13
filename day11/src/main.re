@@ -27,5 +27,5 @@ let solve = ( ~input = Input.input, solver ) =>
     |> Array.fold_left(process, (( 0, 0 ), 0 ))
     |> solver;
 
-Js.log2("Day 10, Part 1:", solve(part1));
-Js.log2("Day 10, Part 2:", solve(part2));
+Js.log2("Day 11, Part 1:", solve(part1));
+Js.log2("Day 11, Part 2:", solve(part2));
