@@ -37,7 +37,9 @@
     "day12": "cd day12 && yarn start",
     "day12:test": "cd day12 && yarn test",
     "day13": "cd day13 && yarn start",
-    "day13:test": "cd day13 && yarn test"
+    "day13:test": "cd day13 && yarn test",
+    "day14": "cd day14 && yarn start",
+    "day14:test": "cd day14 && yarn test"
   },
   "workspaces": [
     "day01",
@@ -52,7 +54,8 @@
     "day10",
     "day11",
     "day12",
-    "day13"
+    "day13",
+    "day14"
   ],
   "devDependencies": {
     "npm-run-all": "^4.1.2"
