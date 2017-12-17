@@ -1,0 +1,31 @@
+{
+  "name": "advent-of-code-2017-day16",
+  "private": true,
+  "version": "0.0.0",
+  "repository": "wyze/advent-of-code-2017",
+  "author": {
+    "name": "Neil Kistner",
+    "email": "neil.kistner@gmail.com",
+    "url": "neilkistner.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "bsb -make-world",
+    "dev": "yarn build -w",
+    "clean": "bsb -clean-world",
+    "prestart": "yarn build",
+    "pretest": "yarn build",
+    "start": "node src/main.bs",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "bs-jest": "^0.2.0",
+    "bs-platform": "^2.1.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/../.jest/setup.js"
+    ],
+    "testEnvironment": "node"
+  }
+}
